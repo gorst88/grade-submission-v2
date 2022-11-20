@@ -6,7 +6,7 @@ import java.util.Set;
 
 import com.ltp.gradesubmission.entity.Course;
 import com.ltp.gradesubmission.entity.Student;
-import com.ltp.gradesubmission.exception.CourseNotFoundException;
+import com.ltp.gradesubmission.exception.EntityNotFoundException;
 import com.ltp.gradesubmission.repository.CourseRepository;
 import com.ltp.gradesubmission.repository.StudentRepository;
 
@@ -17,9 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CourseServiceImpl implements CourseService {
 
-    CourseRepository courseRepository;
-
-    StudentRepository studentRepository;
+    private CourseRepository courseRepository;
+    private StudentRepository studentRepository;
 
     @Override
     public Course getCourse(Long id) {
@@ -61,7 +60,7 @@ public class CourseServiceImpl implements CourseService {
         if (entity.isPresent())
             return entity.get();
         else
-            throw new CourseNotFoundException(id);
+            throw new EntityNotFoundException(id, Course.class);
     }
 
 }

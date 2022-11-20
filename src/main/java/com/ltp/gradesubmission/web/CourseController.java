@@ -19,7 +19,7 @@ import com.ltp.gradesubmission.entity.Course;
 import com.ltp.gradesubmission.entity.Student;
 import com.ltp.gradesubmission.service.CourseService;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
